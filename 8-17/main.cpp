@@ -81,7 +81,7 @@ double calculateAverageSalary(const vector<Employee>& employees) {
 void printEmployeeData(const vector<Employee>& employees, double averageSalary) {
     cout << "Name     Hrs Worked  Pay Rate  Salary" << endl;
     for (const Employee& employee : employees) {
-        cout << left << setw(7) << employee.name << "  " << left << setw(10) <<  fixed << setprecision(2) << employee.hoursWorked << "  " << setw(8) << employee.payRate << "  " << employee.salary << endl;
+        cout << left << setw(7) << employee.name << "  " << setw(10) <<  fixed << setprecision(2) << employee.hoursWorked << "  " << setw(8) << employee.payRate << "  " << employee.salary << endl;
     }
 
     cout << "Average Salary: $" << fixed << setprecision(2) << averageSalary << endl;
