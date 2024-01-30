@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/mityakim/Desktop/Learn_C/8-17",
+      "program": "/Users/mityakim/Desktop/Learn_C/8-17/build/Debug/outDebug"
+    }
+  ]
+}
