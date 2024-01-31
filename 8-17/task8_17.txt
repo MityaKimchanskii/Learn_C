@@ -34,41 +34,5 @@ Average Salary: $947.88
 Salary Greater than Avg:
 Aniston Gupta Kennedy ...
 
-
-
-Status: FAILED!
-Check: 1
-Test: Successful Output
-Reason: Unable to find '[
-
-'Name    Hrs Worked  Pay Rate    Salary', 
-'Johnson      60.00     12.50    875.00', 
-'Aniston      65.00     13.25   1026.88', 
-'Cooper       50.00     14.50    797.50', 
-'Gupta        70.00     14.75   1253.75', 
-'Blair        55.00     10.50    656.25', 
-'Clark        40.00     18.75    750.00', 
-'Kennedy      45.00     20.50    973.75', 
-'Bronson      60.00     20.00   1400.00', 
-'Sunny        65.00     18.75   1453.12', 
-'Smith        30.00      9.75    292.50', 
-'Average Salary: $947.88', 
-'Aniston Gupta Kennedy Bronson Sunny'
-]' in the program's output.
-
-Name     Hrs Worked  Pay Rate  Salary
-Johnson  60.00       12.50     875.00
-Aniston  65.00       13.25     1026.88
-Cooper   50.00       14.50     797.50
-Gupta    70.00       14.75     1253.75
-Blair    55.00       10.50     656.25
-Clark    40.00       18.75     750.00
-Kennedy  45.00       20.50     973.75
-Bronson  60.00       20.00     1400.00
-Sunny    65.00       18.75     1453.12
-Smith    30.00       9.75      292.50
-Average Salary: $947.88
-Aniston Gupta Kennedy Bronson Sunny 
-
-Reason: Unable to find '['Name    Hrs Worked  Pay Rate    Salary', 'Johnson      60.00     12.50    875.00', 'Aniston      65.00     13.25   1026.88', 'Cooper       50.00     14.50    797.50', 'Gupta        70.00     14.75   1253.75', 'Blair        55.00     10.50    656.25', 'Clark        40.00     18.75    750.00', 'Kennedy      45.00     20.50    973.75', 'Bronson      60.00     20.00   1400.00', 'Sunny        65.00     18.75   1453.12', 'Smith        30.00      9.75    292.50', 'Average Salary: $947.88', 'Aniston Gupta Kennedy Bronson Sunny']' in the program's output.
-Name     Hrs Worked  Pay Rate  Salary
+Aniston      65.00     13.25   1026.88 in the program's output.
+Aniston      65.00     13.25    1026.88

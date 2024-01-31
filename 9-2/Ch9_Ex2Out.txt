@@ -1,0 +1,29 @@
+Duckey   Donald       85        B
+Goof     Goofy        89        B
+Brave    Balto        93        A
+Snow     Smitn        93        A
+Alice    Wonderful    89        B
+Samina   Akthar       85        B
+Simba    Green        95        A
+Donald   Egger        90        A
+Brown    Deer         86        B
+Johny    Jackson      95        A
+Greg     Gupta        75        C
+Samuel   Happy        80        B
+Danny    Arora        80        B
+Sleepy   June         70        C
+Amy      Cheng        83        B
+Shelly   Malik        95        A
+Chelsea  Tomek        95        A
+Angela   Clodfelter   95        A
+Allison  Nields       95        A
+Lance    Norman       88        B
+
+Highest Test Score 95
+Students having the highest test score:
+Simba, Green
+Johny, Jackson
+Shelly, Malik
+Chelsea, Tomek
+Angela, Clodfelter
+Allison, Nields

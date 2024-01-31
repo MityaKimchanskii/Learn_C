@@ -1,0 +1,6 @@
+The correct answers are TTFTFTTTFTFTFFTTFTTF
+
+ABC54102  Score: 29 Grade: C
+DEF56278  Score: 42 Grade: A
+ABC42366  Score: 39 Grade: A
+ABC42586  Score: 31 Grade: C
