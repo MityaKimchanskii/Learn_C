@@ -83,14 +83,16 @@ void highestGrade(vector<Student>& students) {
 void writeStudentsData(const vector<Student>& students) {
     ofstream outdata;
 
+    
     outdata.open("/Users/mityakim/Desktop/Learn_C/9-2/Ch9_Ex2Out.txt");
     if (!outdata) {
         cerr << "Couldn't open output file" << endl;
     }
 
+    outdata << "Student Name      Test Score      Grade" << endl;
     for (const Student& student : students) {
-        outdata << left << setw(7) << student.name << "  " << setw(11) <<  fixed << setprecision(2) << student.lastname << "  " << setw(8) << student.score << "  " << student.grade << endl;
-    }   
+        outdata << student.lastname << ", " << left << setw(13)  << student.name << left << setw(10) << student.score << "  " << student.grade << endl;
+    }    
 
     outdata << endl;
     outdata << "Highest Test Score 95" << endl;
