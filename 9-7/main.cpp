@@ -3,10 +3,9 @@
 #include <vector>
 #include <iomanip>
 #include <fstream>
+#include <tuple>
 
 using namespace std;
-
-const int NUM_PLAYERS = 10;
 
 struct Player
 {
@@ -18,6 +17,10 @@ struct Player
     int receivingYards;
     int rushingYards;
 };
+
+// Global variables
+vector<Player> playersArraySourceOfTruth;
+const int NUM_PLAYERS = 10;
 
 void readData(vector<Player> &players);
 void printMenu();
@@ -37,12 +40,10 @@ int main()
     int numberToAdd = 0;
     string playerName;
     string answer;
-    vector<Player> players;
 
     // read the data from the file
-    readData(players);
+    readData(playersArraySourceOfTruth);
 
-    
     while (number != 99)
     {
         printMenu();
@@ -54,11 +55,11 @@ int main()
             cout << "Enter players name: ";
             cin >> playerName;
             cout << endl;
-            printPlayer(playerName, players);
+            printPlayer(playerName, playersArraySourceOfTruth);
         }
         else if (number == 2)
         {
-            printFullData(players);
+            printFullData(playersArraySourceOfTruth);
         }
         else if (number == 3)
         {
@@ -70,31 +71,55 @@ int main()
             cin >> numberToAdd;
             cout << endl;
 
-            updateTouchDowns(playerName, numberToAdd, players);
+            updateTouchDowns(playerName, numberToAdd, playersArraySourceOfTruth);
         }
         else if (number == 4)
         {
             cout << "Enter players name to update number of cathces: ";
             cin >> playerName;
             cout << endl;
+
+            cout << "Enter number to update number of cathces: ";
+            cin >> numberToAdd;
+            cout << endl;
+
+            updateNumberOfCatches(playerName, numberToAdd, playersArraySourceOfTruth);
         }
         else if (number == 5)
         {
             cout << "Enter players name to update passing yards: ";
             cin >> playerName;
             cout << endl;
+
+            cout << "Enter number to update number of passing yards: ";
+            cin >> numberToAdd;
+            cout << endl;
+
+            updatePassingYards(playerName, numberToAdd, playersArraySourceOfTruth);
         }
         else if (number == 6)
         {
             cout << "Enter players name to update reciving yards: ";
             cin >> playerName;
             cout << endl;
+
+            cout << "Enter number to update number of reciving yards: ";
+            cin >> numberToAdd;
+            cout << endl;
+
+            updateReceivingYards(playerName, numberToAdd, playersArraySourceOfTruth);
         }
         else if (number == 7)
         {
             cout << "Enter players name to update running yards: ";
             cin >> playerName;
             cout << endl;
+
+            cout << "Enter number to update number of running yards ";
+            cin >> numberToAdd;
+            cout << endl;
+
+            updateRushingYards(playerName, numberToAdd, playersArraySourceOfTruth);  
         }
     }
 
@@ -109,8 +134,10 @@ int main()
 
             if (answer == "Y")
             {
-                saveNewData(players);
+                saveNewData(playersArraySourceOfTruth);
                 cout << "New data saved successfully!" << endl;
+                number = 0;
+                numberToAdd = 0;
             }
         }
     }
@@ -167,18 +194,12 @@ void printFullData(const vector<Player> &players)
 Player findPlayer(string name, const vector<Player> &players)
 {
     Player playerToPass;
-    int count = 0;
-
     for (const Player &player : players)
     {
         if (player.name == name)
         {
             playerToPass = player;
-            
-            cout << "Index of playerToPass: " << count;
-            cout << endl;
         }
-        count += 1;
     }
 
     return playerToPass;
@@ -195,41 +216,106 @@ void printPlayer(string name, const vector<Player> &players)
     cout << endl;
 }
 
+
 void updateTouchDowns(string name, int newTouchDownsData, const vector<Player> &players)
 {
+    vector<Player> newPlayersData;
+
     Player playerToUpdate = findPlayer(name, players);
     playerToUpdate.touchDowns = playerToUpdate.touchDowns + newTouchDownsData;
 
-    cout << "Touch downs updated sucessfully!" << endl;
-    cout << "Name      BillPosition   TD   NOC  PYa    ReY    RuY" << endl;
-    cout << left << setw(8) << playerToUpdate.name << "  " << setw(13) << playerToUpdate.billPosition << "  " << setw(3) << playerToUpdate.touchDowns << "  "
-         << setw(3) << playerToUpdate.numberOfCatches << "  " << setw(5) << playerToUpdate.passingYards << "  " << setw(5) << playerToUpdate.receivingYards << "  "
-         << setw(6) << playerToUpdate.rushingYards << endl;
-    cout << endl;
+    for (const Player &player : players)
+    {
+        if (player.name == name)
+        {
+            newPlayersData.push_back(playerToUpdate);
+        } else {
+            newPlayersData.push_back(player);
+        }
+    }
+
+    playersArraySourceOfTruth = newPlayersData;
+
 }
 
 void updateNumberOfCatches(string name, int newNumberOfCatches, const vector<Player> &players)
 {
+    vector<Player> newPlayersData;
+
     Player playerToUpdate = findPlayer(name, players);
     playerToUpdate.numberOfCatches = playerToUpdate.numberOfCatches + newNumberOfCatches;
+
+    for (const Player &player : players)
+    {
+        if (player.name == name)
+        {
+            newPlayersData.push_back(playerToUpdate);
+        } else {
+            newPlayersData.push_back(player);
+        }
+    }
+
+    playersArraySourceOfTruth = newPlayersData;
 }
 
 void updatePassingYards(string name, int newPassingYards, const vector<Player> &players)
 {
+    vector<Player> newPlayersData;
+
     Player playerToUpdate = findPlayer(name, players);
     playerToUpdate.passingYards = playerToUpdate.passingYards + newPassingYards;
+
+    for (const Player &player : players)
+    {
+        if (player.name == name)
+        {
+            newPlayersData.push_back(playerToUpdate);
+        } else {
+            newPlayersData.push_back(player);
+        }
+    }
+
+    playersArraySourceOfTruth = newPlayersData;
 }
 
 void updateReceivingYards(string name, int newReceivingYards, const vector<Player> &players)
 {
+    vector<Player> newPlayersData;
+
     Player playerToUpdate = findPlayer(name, players);
     playerToUpdate.receivingYards = playerToUpdate.receivingYards + newReceivingYards;
+
+    for (const Player &player : players)
+    {
+        if (player.name == name)
+        {
+            newPlayersData.push_back(playerToUpdate);
+        } else {
+            newPlayersData.push_back(player);
+        }
+    }
+
+    playersArraySourceOfTruth = newPlayersData;
 }
 
 void updateRushingYards(string name, int newRushingYards, const vector<Player> &players)
 {
+    vector<Player> newPlayersData;
+
     Player playerToUpdate = findPlayer(name, players);
     playerToUpdate.rushingYards = playerToUpdate.rushingYards + newRushingYards;
+
+    for (const Player &player : players)
+    {
+        if (player.name == name)
+        {
+            newPlayersData.push_back(playerToUpdate);
+        } else {
+            newPlayersData.push_back(player);
+        }
+    }
+
+    playersArraySourceOfTruth = newPlayersData;
 }
 
 void saveNewData(const vector<Player> &players)
