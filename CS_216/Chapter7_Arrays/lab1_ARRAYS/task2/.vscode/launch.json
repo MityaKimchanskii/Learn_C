@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/mityakim/Desktop/Learn_C/CS_216/Module1_Arrays/lab1_ARRAYS/task2",
+      "program": "/Users/mityakim/Desktop/Learn_C/CS_216/Module1_Arrays/lab1_ARRAYS/task2/build/Debug/outDebug"
+    }
+  ]
+}
