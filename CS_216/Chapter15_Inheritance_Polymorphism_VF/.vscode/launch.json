@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/mityakim/Desktop/Learn_C/CS_216/Chapter15_Inheritance_Polymorphism_VF",
+      "program": "/Users/mityakim/Desktop/Learn_C/CS_216/Chapter15_Inheritance_Polymorphism_VF/build/Debug/outDebug"
+    }
+  ]
+}
