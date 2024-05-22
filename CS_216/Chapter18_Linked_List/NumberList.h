@@ -9,25 +9,33 @@ class NumberList {
     private:
         // Declare a structure for the nodes list.
         struct ListNode {
-            double value;              // variable to hold the value of the node
+            int value;              // variable to hold the value of the node
             struct  ListNode *next;    // pointer to the next node
         };
 
         ListNode *head;                // list head pointer
 
         public:
-
+            // Constructor.
             NumberList() {
                 head = nullptr;
             };
 
-            // void insertNode(double);
-            void deleteNode(double);
-            // void appendNode(double num);
-            // void displayNode(double);
+            // Destructor.
+           ~NumberList() {
+                ListNode *nodePtr;
+                ListNode *nextNode;
 
+                nodePtr = head;
 
-            void appendNode(double num) {
+                while (nodePtr != nullptr) {
+                    nextNode = nodePtr->next;
+                    delete nodePtr;
+                    nodePtr = nextNode;
+                }
+           }
+            // Append the node to the list
+            void appendNode(int num) {
     
                 ListNode *newNode;
                 ListNode *nodePtr;
@@ -50,6 +58,7 @@ class NumberList {
                 }
             }
 
+            // Display the list
             void displayNodeList() const {
                 ListNode *nodePtr;
                 nodePtr = head;
@@ -61,7 +70,8 @@ class NumberList {
                 
             }
 
-            void insertNode(double num) {
+            // Insert the node
+            void insertNode(int num) {
                 ListNode *newNode;
                 ListNode *nodePtr;
                 ListNode *previousNode = nullptr;
@@ -88,7 +98,34 @@ class NumberList {
                         previousNode->next = newNode;
                         newNode->next = nodePtr;
                     }
-                    
+                }
+            }
+
+            // Delete the node
+            void deleteNode(int num) {
+                ListNode *nodePtr;
+                ListNode *previousNode;
+
+                if (!head) {
+                    return;
+                }
+
+                if (head->value == num) {
+                    nodePtr = head;
+                    delete head;
+                    head = nodePtr;
+                } else {
+                    nodePtr = head;
+
+                    while (nodePtr != nullptr && nodePtr->value != num) {
+                        previousNode = nodePtr;
+                        nodePtr = nodePtr->next;
+                    }
+
+                    if (nodePtr) {
+                        previousNode->next = nodePtr->next;
+                        delete nodePtr;
+                    }
                 }
             }
 };
